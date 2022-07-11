@@ -12,10 +12,72 @@ body{
     width: 155px;
 }
 
-.header .contenedor-menu {
+.header .container-menu {
     padding: 20px;
     position: relative;
     z-index: 999999;
+}
+
+.menu-button {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    font-size: 0;
+    height: 10px;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    position: relative;
+    right: 0;
+    width: 18px;
+}
+
+.menu-button:after, .menu-button:before {
+    background: #17151d;
+    border-radius: 1px;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 18px;
+}
+
+.menu-button:after {
+    bottom: 0;
+    top: auto;
+}
+
+.menu-button.active:before {
+    animation: toggle_top_line .4s ease;
+    animation-fill-mode: forwards;
+}
+
+.menu-button.active:after {
+    animation: toggle_bottom_line .4s ease;
+    animation-fill-mode: forwards;
+}
+
+.container-header.menu-open .header-nav {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    left: 0;
+    opacity: 1;
+    overflow: auto;
+    padding-top: 80px;
+    position: fixed;
+    top: 0;
+    visibility: visible;
+    width: 100vw;
+    z-index: 9999;
+}
+
+.container-header.menu-open .menu-button:after, .container-header.menu-open .menu-button:before {
+    background-color: #fff;
 }
 
 .header .header-nav {
@@ -23,7 +85,7 @@ body{
     max-height: 100%;
 }
 
-.header .contenedor-header {
+.header .container-header {
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -45,6 +107,11 @@ body{
 
 .header .header-nav .header-nav-link.active, .header .header-nav .header-nav-link:hover {
     text-decoration: none;
+}
+
+.container-header.menu-open .header-nav .header-nav-link {
+    margin-top: 0;
+    opacity: 1;
 }
 
 .header .header-nav .header-nav-link:last-of-type {
@@ -70,6 +137,10 @@ a
         height: 46px;
         width: 65px;
     }
+
+    .menu-button {
+        display: block;
+    }
 }
 
 
@@ -94,5 +165,18 @@ a
         visibility: hidden;
         width: 0;
         z-index: 9999;
+    }
+
+    .header .header-nav .header-nav-link {
+        color: #fff;
+        display: block;
+        font-family: Karla,sans-serif;
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: -2.2px;
+        line-height: 1em;
+        margin: -20px 40px 20px;
+        opacity: 0;
+        transition: all .6s ease;
     }
 }
