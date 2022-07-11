@@ -18,3 +18,27 @@
     50% { border-color: transparent;}
     
 }
+
+body .icon {
+    fill: #17151d;
+}
+
+.icon {
+    max-height: 25px;
+    max-width: 30px;
+}
+
+.section.with-us .with-us-columns .with-us-column .icon {
+    margin-bottom: 15px;
+}
+
+.section.with-us .with-us-columns .with-us-column {
+    display: flex;
+}
+
+@media (max-width: 1024px)
+{
+    .section.with-us .with-us-columns .with-us-column {
+        flex-direction: column;
+    }
+}
